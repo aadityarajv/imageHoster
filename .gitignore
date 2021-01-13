@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+src/main/java/ImageHoster/config/JpaConfig.java
+src/main/resources/META-INF/persistence.xml
