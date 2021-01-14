@@ -97,11 +97,9 @@ public class ImageController {
     public String editImage(@RequestParam("imageId") Integer imageId, Model model, HttpSession session) {
         Image image = imageService.getImage(imageId);
 
-        User userImage = image.getUser();
-
         User user = (User) session.getAttribute("loggeduser");
 
-        if(userImage.getId().equals(user.getId())) {
+        if(image.getUser().getId().equals(user.getId())) {
             String tags = convertTagsToString(image.getTags());
             model.addAttribute("image", image);
             model.addAttribute("tags", tags);
@@ -111,10 +109,9 @@ public class ImageController {
             model.addAttribute("editError", error);
             model.addAttribute("image", image);
             model.addAttribute("tags", image.getTags());
+            model.addAttribute("comments", image.getComments());
             return "/images/image";
         }
-
-
     }
 
     //This controller method is called when the request pattern is of type 'images/edit' and also the incoming request is of PUT type

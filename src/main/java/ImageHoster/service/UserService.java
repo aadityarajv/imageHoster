@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 @Service
 public class UserService {
 
-    public static final String PASS_REGEX = "^(?=(.*[a-zA-Z].*))(?=.*\\d.*)(?=.*\\W.*)[a-zA-Z0-9\\S]{3,15}$";
 
     @Autowired
     private UserRepository userRepository;
@@ -20,9 +19,6 @@ public class UserService {
         userRepository.registerUser(newUser);
     }
 
-    public boolean validatePassword(String password) {
-        return (Pattern.compile(PASS_REGEX)).matcher(password).matches();
-    }
 
     //Since we did not have any user in the database, therefore the user with username 'upgrad' and password 'password' was hard-coded
     //This method returned true if the username was 'upgrad' and password is 'password'
