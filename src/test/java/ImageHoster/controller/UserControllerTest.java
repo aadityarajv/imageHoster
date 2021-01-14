@@ -1,4 +1,3 @@
-/*
 package ImageHoster.controller;
 
 import ImageHoster.model.User;
@@ -81,7 +80,6 @@ public class UserControllerTest {
         user.setUsername("Abhi");
         user.setPassword("password1@");
 
-
         this.mockMvc.perform(post("/users/registration")
                 .flashAttr("user", user)
         )
@@ -118,6 +116,7 @@ public class UserControllerTest {
 
 
     //This test checks the controller logic for user signin when user enters the username and password that has been registered and sends the POST request to the server and checks whether the logic redirects to the request handling method with request mapping of type "/images"
+    @Test
     public void signinWithCorrectCredentials() throws Exception {
         User user = new User();
         UserProfile userProfile = new UserProfile();
@@ -167,4 +166,4 @@ public class UserControllerTest {
                 .andExpect(content().string(containsString("Image Hoster")));
     }
 }
-*/
+
